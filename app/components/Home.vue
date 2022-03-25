@@ -17,13 +17,22 @@
 
 <script lang="ts">
   import Vue from "nativescript-vue";
+  import ContentService from '../services/ContentService'
 
+  const contentService = new ContentService()
   export default Vue.extend({
     computed: {
       message() {
-        return "Blank {N}-Vue app";
+        return 'test'
       }
+    },
+    created() {
+      contentService.getContent()
+    },
+    updated () {
+      contentService.getContent()
     }
+    
   });
 </script>
 
