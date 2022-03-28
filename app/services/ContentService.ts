@@ -4,8 +4,13 @@ import { NameCodeMappingModel, SearchStateModel, LandingModel } from '../models/
 const baseUrl = 'http://10.0.2.2:5000'
 
 export default class ContentService {
-  private nameCodeMapping: NameCodeMappingModel[] = []
-  private searchState: SearchStateModel[] = []
+  private nameCodeMapping!: NameCodeMappingModel[]
+  private searchState!: SearchStateModel[]
+  
+  constructor() {
+    this.nameCodeMapping = []
+    this.searchState = []
+  }
   
   public landing(): LandingModel {
     return {
@@ -21,7 +26,7 @@ export default class ContentService {
       (response: HttpResponse) => {                
         const contentJSON = response.content?.toJSON()
               
-        contentJSON.data.map((stock: any) => {
+        contentJSON.data.map((stock: any | undefined) => {
           this.nameCodeMapping.push({
             name: stock[1],
             code: stock[0]

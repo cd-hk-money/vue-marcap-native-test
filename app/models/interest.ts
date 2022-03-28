@@ -1,27 +1,24 @@
-interface BaseEntity {
-  prePersist(): void
-  preUpdate(): void  
-}
+import { SimpleStockModel } from "./stock"
 
-export interface InterstModel extends BaseEntity{
-  id: Number
-  interestListId: Number
-  notification: Boolean
-  sequence: Number
-  stockCode: Number
+// /interestList/{memberId}
+// 관심종목 리스트 정보를 가져온다.
+export interface InterestListsModel {
+  userName: String
+  interestList: InterestListModel[]
 }
 
 export interface InterestListModel {
-  id: Number
-  member: MemberModel
-  name: String
-  sequence: String
+  listName: String
+  listItem: InterestModel[]
 }
 
-export interface MemberModel extends BaseEntity{
-  email: String
-  id: String
-  password: String
-  subscribe: Boolean
-  username: String
+export interface InterestModel {
+  notification: Boolean
+  stock: SimpleStockModel
 }
+
+// export interface SimpleStockModel {
+//   title: String   // 종목 이름
+//   code: String    // 종목 코드
+//   stock: Number   // 종가
+// }

@@ -1,7 +1,7 @@
-import { InterestList } from '../models/interest'
+import { InterestListModel } from '../models/interest'
 
 export default class InterestService {
-  private interestList: InterestList[]
+  private interestList: InterestListModel[]
 
   constructor(){
     this.interestList = []

@@ -57,7 +57,9 @@ export interface dailyRank {
   fluctationRateRank: NameCodeMappingModel
 }
 
+// 유사종목, 주요뉴스 모델
 export interface SubSide {
   similarStock: NameCodeMappingModel[]
   news: undefined
 }
+
